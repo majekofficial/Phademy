@@ -1,6 +1,6 @@
 {
- "name": "Toolora",
- "short_name": "Toolora",
+ "name": "Phademy",
+ "short_name": "Phademy",
  "description": "Free calculators for maths, physics, health, money and everyday life.",
  "start_url": "./index.html",
  "scope": "./",
@@ -9,13 +9,13 @@
  "theme_color": "#0b1b3a",
  "icons": [
   {
-   "src": "toolora-icon-192.png",
+   "src": "phademy-icon-192.png",
    "sizes": "192x192",
    "type": "image/png",
    "purpose": "any maskable"
   },
   {
-   "src": "toolora-icon-512.png",
+   "src": "phademy-icon-512.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "any maskable"
