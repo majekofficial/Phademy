@@ -150,6 +150,7 @@ function features(slug,form,t){
 
 
 
+
 /*PHADEMY-NEW*/
 const M=(()=>{
 const BI=BigInt,gcdB=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b]}return a},lcmB=(a,b)=>a/gcdB(a,b)*b;
