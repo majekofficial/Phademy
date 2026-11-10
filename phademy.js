@@ -151,6 +151,7 @@ function features(slug,form,t){
 
 
 
+
 /*PHADEMY-NEW*/
 const M=(()=>{
 const BI=BigInt,gcdB=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b]}return a},lcmB=(a,b)=>a/gcdB(a,b)*b;
@@ -336,6 +337,7 @@ return{sqrtSimp,gcdB,lcmB,Q,qIn,dq,rnd,parseR,parseEq,rNorm,rStr,pStr,solveFor,s
 if(typeof module!=='undefined')module.exports=M;
 
 const TX=(()=>{
+const LOGO=new Image();LOGO.src='phademy-logo.png';
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const friendly=e=>e&&e.constructor===Error?e.message:"I couldn't work that out. Check your brackets and symbols, for example 5x + 3y = 6 or (x+1)(x−2).";
 const KP=['x','y','z','^','(',')','+','−','×','÷','=','π','⌫'];
@@ -456,7 +458,7 @@ function drawImg(s,cb){const W=1080,P=64,HD=130,c=document.createElement('canvas
    else{for(const l of e.ls){y+=e.px*1.3;if(d){g.font=e.wt+' '+e.px+'px '+FF;g.fillStyle=e.col;g.textAlign='left';g.fillText(l,P+(inb?28:0),y)}}y+=e.gap}}return y};
  const end=run(false);c.width=W;c.height=end+120;g.fillStyle='#ffffff';g.fillRect(0,0,W,c.height);
  g.fillStyle='#eaf1ff';(g.roundRect||g.rect).call(g.beginPath()||g,P-4,box.y,W-2*P+8,box.h,26);g.fill();
- g.fillStyle='#0b1b3a';g.fillRect(0,0,W,HD);g.font='800 56px '+FF;g.textAlign='left';let x=P;[['ph','#fff'],['a','#60a5fa'],['demy','#fff']].forEach(([t,col])=>{g.fillStyle=col;g.fillText(t,x,84);x+=g.measureText(t).width});
+ g.fillStyle='#0b1b3a';g.fillRect(0,0,W,HD);g.font='800 56px '+FF;g.textAlign='left';let x=P;if(LOGO.complete&&LOGO.naturalWidth){g.fillStyle='#ffffff';g.beginPath();(g.roundRect||g.rect).call(g,P,23,84,84,20);g.fill();g.drawImage(LOGO,P+8,31,68,68);x=P+104}[['ph','#fff'],['a','#60a5fa'],['demy','#fff']].forEach(([t,col])=>{g.fillStyle=col;g.fillText(t,x,84);x+=g.measureText(t).width});
  g.font='500 26px '+FF;g.fillStyle='#9db6e4';g.textAlign='right';g.fillText(dt,W-P,82);run(true);
  g.fillStyle='#8a97b5';g.font='500 24px '+FF;g.textAlign='left';g.fillText('Calculated on Phademy  ·  free calculators for everyone',P,c.height-50);c.toBlob(cb,'image/png')}
 function pdfBlob(s){const cl=t=>String(t).replace(/₦/g,'NGN ').replace(/₹/g,'INR ').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/−/g,'-').replace(/≈/g,'~').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/→/g,'->').replace(/←/g,'<-').replace(/[⁰⁴⁵⁶⁷⁸⁹]/g,m=>'^'+'⁰¹²³⁴⁵⁶⁷⁸⁹'.indexOf(m)).replace(/[±]/g,'+/-').replace(/[✓]/g,'(ok)').replace(/[^\x20-\x7E\u00A0-\u00FF]/g,'?').replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
